@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import "./App.css";
+import NavBar from "./components/NavBar";
+import SideBar from "./components/SideBar";
+import ChatWindow from "./components/ChatWindow";
+import ChatInput from './components/ChatInput';
 
-function App(){
-  return(
+function App() {
+  return (
     <>
-    <p className="message"><u>ChatBot App !</u></p>
+      <NavBar />
+      <SideBar />
+      <ChatWindow />
+      <ChatInput />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
