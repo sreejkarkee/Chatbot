@@ -1,7 +1,7 @@
 function NavBar(){
     return(
         <nav>
-            <h2>AI ChatBot</h2>
+            <h2>AI Babu</h2>
         </nav>
     );
 }
