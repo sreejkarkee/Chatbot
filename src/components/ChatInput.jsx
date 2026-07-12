@@ -1,6 +1,6 @@
 function ChatInput() {
   return (
-    <div>
+    <div className="chat-input">
       <input
         type="text"
         placeholder="Type a message..."
