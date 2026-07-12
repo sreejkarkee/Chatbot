@@ -1,20 +1,17 @@
 import ChatInput from "./ChatInput";
+import Message from "./Message";
 
 function ChatWindow({ messages, onSend }) {
   return (
-    <>
-      <main className="chat-window">
-        <div className="messages">
-          {messages.map((message, index) => (
-            <p key={index}>
-              <strong>{message.sender}:</strong> {message.text}
-            </p>
-          ))}
-        </div>
+    <main className="chat-window">
+      <div className="messages">
+        {messages.map((message, index) => (
+          <Message key={index} sender={message.sender} text={message.text} />
+        ))}
+      </div>
 
-        <ChatInput onSend={onSend} />
-      </main>
-    </>
+      <ChatInput onSend={onSend} />
+    </main>
   );
 }
 

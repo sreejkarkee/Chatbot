@@ -10,6 +10,12 @@ function ChatInput({ onSend }) {
         placeholder="Type a message..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onSend(input);
+            setInput("");
+          }
+        }}
       />
 
       <button
@@ -17,6 +23,7 @@ function ChatInput({ onSend }) {
           onSend(input);
           setInput(""); // Clear the input after sending
         }}
+      
       >
         Send
       </button>

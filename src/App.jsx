@@ -19,7 +19,7 @@ function App() {
       setMessages((prevMessages) => [
         ...prevMessages,
         {
-          sender: "AI Babu",
+          sender: "bot",
           text: "I'm here to help!",
         },
       ]);
@@ -27,7 +27,7 @@ function App() {
   }
   const [messages, setMessages] = useState([
     {
-      sender: "AI Babu",
+      sender: "bot",
       text: "Hello, how can I help you today?",
     },
   ]);
