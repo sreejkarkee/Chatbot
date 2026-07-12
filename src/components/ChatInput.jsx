@@ -1,10 +1,9 @@
 import { useState } from "react";
 
-function ChatInput({onSend}) {
-  //creating state
+function ChatInput({ onSend }) {
   const [input, setInput] = useState("");
+
   return (
-    <>
     <div className="chat-input">
       <input
         type="text"
@@ -12,11 +11,16 @@ function ChatInput({onSend}) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <button onClick={() => onSend(input)}>Send</button>
-    </div>
-    <p>{input}</p>
-    </>
 
+      <button
+        onClick={() => {
+          onSend(input);
+          setInput(""); // Clear the input after sending
+        }}
+      >
+        Send
+      </button>
+    </div>
   );
 }
 

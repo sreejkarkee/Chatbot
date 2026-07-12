@@ -1,7 +1,6 @@
 import ChatInput from "./ChatInput";
-import { useState } from "react";
+
 function ChatWindow({ messages, onSend }) {
-  const [input, setInput] = useState("");
   return (
     <>
       <main className="chat-window">
