@@ -1,14 +1,18 @@
 import ChatInput from "./ChatInput";
 import { useState } from "react";
-function ChatWindow({onSend}) {
+function ChatWindow({ messages, onSend }) {
   const [input, setInput] = useState("");
   return (
     <>
       <main className="chat-window">
         <div className="messages">
-          <h3>Chat Area</h3>
+          {messages.map((message, index) => (
+            <p key={index}>
+              <strong>{message.sender}:</strong> {message.text}
+            </p>
+          ))}
         </div>
-        
+
         <ChatInput onSend={onSend} />
       </main>
     </>
