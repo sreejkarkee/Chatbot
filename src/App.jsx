@@ -7,6 +7,9 @@ import ChatInput from './components/ChatInput';
 import { useState } from "react";
 
 function App() {
+  function handleSend(message){
+    console.log(message);
+  }
 
   const[messages, setMessages] = useState([{
     sender:"bot",
@@ -19,7 +22,7 @@ function App() {
       <NavBar />
       <div className="main-container">
         <SideBar />
-        <ChatWindow />
+        <ChatWindow onSend={handleSend} />
       </div>
     </>
   );
