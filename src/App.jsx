@@ -8,9 +8,10 @@ function App() {
   return (
     <>
       <NavBar />
-      <SideBar />
-      <ChatWindow />
-      
+      <div className="main-container">
+        <SideBar />
+        <ChatWindow />
+      </div>
     </>
   );
 }

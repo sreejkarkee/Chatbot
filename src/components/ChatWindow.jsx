@@ -1,10 +1,12 @@
 import ChatInput from './ChatInput';
 function ChatWindow() {
   return (
-    <main>
+    <><main className="chat-window">
+      <div className='messages'>
       <h3>Chat Area</h3>
-    </main>
-    <ChatInput/>
+        <p>Hello, how can I help you today?</p>
+      </div>
+    </main><ChatInput /></>
   );
 }
 

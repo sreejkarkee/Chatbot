@@ -1,6 +1,6 @@
 function Sidebar() {
   return (
-    <aside>
+    <aside className="sidebar">
       <button>+ New Chat</button>
     </aside>
   );
