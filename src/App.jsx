@@ -20,7 +20,7 @@ function App() {
         ...prevMessages,
         {
           sender: "bot",
-          text: "I'm here to help!",
+          text: "Sorry, I'm being developed at the moment!",
         },
       ]);
     }, 1000);
