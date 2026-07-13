@@ -2,42 +2,71 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import ChatWindow from "./components/ChatWindow";
-import ChatInput from "./components/ChatInput";
+import { getAIResponse } from "./services/gemini";
 
 import { useState } from "react";
 
 function App() {
-  function handleSend(message) {
-    setMessages((prevMessages) => [
-      ...prevMessages,
+  const [messages, setMessages] = useState([
+    {
+      sender: "AI Babu",
+      text: "Hello, how can I help you today?",
+    },
+  ]);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleSend(message) {
+    if (!message.trim()) return;
+
+    // Add user's message
+    setMessages((prev) => [
+      ...prev,
       {
         sender: "user",
         text: message,
       },
     ]);
-    setTimeout(() => {
-      setMessages((prevMessages) => [
-        ...prevMessages,
+
+    setIsLoading(true);
+
+    try {
+      // Get AI response
+      const reply = await getAIResponse(message);
+
+      // Add AI response
+      setMessages((prev) => [
+        ...prev,
         {
-          sender: "bot",
-          text: "Sorry, I'm being developed at the moment!",
+          sender: "AI Babu",
+          text: reply,
         },
       ]);
-    }, 1000);
+    } catch (error) {
+      // Show error message
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "AI Babu",
+          text: "Sorry, something went wrong. Please try again.",
+        },
+      ]);
+    } finally {
+      // Stop loading whether success or error
+      setIsLoading(false);
+    }
   }
-  const [messages, setMessages] = useState([
-    {
-      sender: "bot",
-      text: "Hello, how can I help you today?",
-    },
-  ]);
 
   return (
     <>
       <NavBar />
       <div className="main-container">
         <SideBar />
-        <ChatWindow messages={messages} onSend={handleSend}  />
+        <ChatWindow
+          messages={messages}
+          onSend={handleSend}
+          isLoading={isLoading}
+        />
       </div>
     </>
   );

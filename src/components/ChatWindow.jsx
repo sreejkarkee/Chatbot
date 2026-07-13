@@ -1,8 +1,8 @@
 import ChatInput from "./ChatInput";
 import Message from "./Message";
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 
-function ChatWindow({ messages, onSend }) {
+function ChatWindow({ messages, onSend, isLoading }) {
   const messageRef = useRef(null);
   useEffect(() => {
     if (messageRef.current) {
@@ -15,6 +15,7 @@ function ChatWindow({ messages, onSend }) {
         {messages.map((message, index) => (
           <Message key={index} sender={message.sender} text={message.text} />
         ))}
+        {isLoading && <Message sender="AI Babu" text="Typing..." />}
       </div>
 
       <ChatInput onSend={onSend} />
