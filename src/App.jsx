@@ -2,7 +2,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import ChatWindow from "./components/ChatWindow";
-import { getAIResponse } from "./services/gemini";
+import { getAIResponse } from "./services/groq";
 
 import { useState } from "react";
 
@@ -72,4 +72,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
